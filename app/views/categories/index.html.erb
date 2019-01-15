@@ -1,27 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Categories</h1>
+<div class="text-right">
+  <%= link_to( 'New Category', new_category_path, class: "btn btn-lg btn-success" ) %>
+</div>
 
-<table>
-  <thead>
+<table class="table mt-2">
+  <thead class="thead-light">
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th>Category</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to( category.name, category ) %>
+        </td>
+
+        <td>
+          <%= link_to( 'Edit', edit_category_path( category ), class: "btn btn-sm btn-primary" ) %>
+          <%= link_to( 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger text-white" ) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
