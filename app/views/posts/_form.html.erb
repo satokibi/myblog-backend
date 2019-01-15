@@ -17,6 +17,11 @@
   </div>
 
   <div class="field form-group">
+    <%= form.label( :category_id ) %>
+    <%= form.collection_select( :category_id, @current_user.categories, :id, :name ) %>
+  </div>
+
+  <div class="field form-group">
     <%= form.label :body %>
     <%= form.text_area( :body, class: "form-control" ) %>
   </div>

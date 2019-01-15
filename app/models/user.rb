@@ -2,6 +2,9 @@ class User < ApplicationRecord
   has_secure_password
   validates( :mail, presence: true, uniqueness: true )
 
+  has_many( :posts, dependent: :destroy )
+  has_many( :categories, dependent: :destroy )
+
   def remember( remember_token )
     update_attribute( :remember_token, User.encrypt( remember_token ) )
   end
