@@ -8,5 +8,12 @@
   <%= @category.updated_at %>
 </p>
 
+<p>
+  posts in <%= @category.name %>
+</p>
+
+<%= render( partial: 'shared/posts_table', locals: { posts: @category.posts } ) %>
+
+
 <%= link_to( 'Edit', edit_category_path(@category), class: "btn btn-primary" ) %>
 <%= link_to( 'Back', categories_path, class: "ml-2 btn btn-secondary" ) %>

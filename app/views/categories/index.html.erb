@@ -8,6 +8,7 @@
     <tr>
       <th>Category</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,6 +17,10 @@
       <tr>
         <td>
           <%= link_to( category.name, category ) %>
+        </td>
+
+        <td>
+          <%= category.posts.count %>
         </td>
 
         <td>
