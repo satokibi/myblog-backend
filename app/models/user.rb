@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many( :posts, dependent: :destroy )
   has_many( :categories, dependent: :destroy )
+  has_many( :tags, dependent: :destroy )
 
   def remember( remember_token )
     update_attribute( :remember_token, User.encrypt( remember_token ) )

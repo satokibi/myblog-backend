@@ -21,6 +21,15 @@
     <%= form.collection_select( :category_id, @current_user.categories, :id, :name ) %>
   </div>
 
+  <div class="field">
+  <span>Tags: </span>
+    <%= form.collection_check_boxes( :tag_ids, @current_user.tags, :id, :name ) do |t| %>
+      <%= t.label( class: "form-check form-check-inline" ) do %>
+       <%= t.check_box( class: "form-check-input" ) + t.text  %>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="field form-group">
     <%= form.label :body %>
     <%= form.text_area( :body, class: "form-control" ) %>
