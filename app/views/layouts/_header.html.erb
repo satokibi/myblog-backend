@@ -9,14 +9,16 @@
 
       <% if( signed_in? ) %>
         <li class="nav-item">
-          <a class="nav-link">New Post</a>
+          <%= link_to( "New Post", new_post_path, class: "nav-link" ) %>
         </li>
         <li class="dropdown nav-item">
+
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
             All Posts <b class="caret"></b>
           </a>
-
           <div class="dropdown-menu">
+            <%= link_to( "All", posts_path, class: "dropdown-item" ) %>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item">Published</a>
             <a class="dropdown-item">Drafts</a>
           </div>
