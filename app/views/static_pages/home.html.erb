@@ -1,2 +1,8 @@
 <h1>StaticPages#home</h1>
-<a href="https://satokibi.site" target="_blank">satokibi.site</a>
+
+<div id="content"></div>
+<script>
+  console.log(marked('I am using __markdown__.'));
+  document.getElementById('content').innerHTML =
+      marked('# Marked in browser\n\nRendered by **marked**.');
+</script>
