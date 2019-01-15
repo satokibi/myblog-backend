@@ -1,0 +1,12 @@
+
+<h1>
+  <%= @category.name %>
+</h1>
+<p>
+  <%= @category.created_at %>
+  <br>
+  <%= @category.updated_at %>
+</p>
+
+<%= link_to( 'Edit', edit_category_path(@category), class: "btn btn-primary" ) %>
+<%= link_to( 'Back', categories_path, class: "ml-2 btn btn-secondary" ) %>

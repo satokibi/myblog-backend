@@ -1,0 +1,6 @@
+<h1>Editing Category</h1>
+
+<%= render 'form', category: @category %>
+
+<%= link_to( 'Destroy', @category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger text-white mt-4" ) %>
+<%= link_to( 'Cancel', categories_path, class: "btn btn-sm btn-secondary mt-4", data: { confirm: 'Do you want to move without saving?'} ) %>
