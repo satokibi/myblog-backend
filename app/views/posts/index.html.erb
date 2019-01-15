@@ -2,8 +2,8 @@
 
 <h1>Posts</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-light">
     <tr>
       <th>Title</th>
       <th>Body</th>
@@ -14,7 +14,11 @@
 
   <tbody>
     <% @posts.each do |post| %>
+      <% if( post.published ) %>
       <tr>
+      <% else %>
+      <tr class="table-secondary">
+      <% end %>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= post.published %></td>
