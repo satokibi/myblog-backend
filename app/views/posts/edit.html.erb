@@ -2,5 +2,4 @@
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to( 'Cancel', posts_path, class: "btn btn-secondary mt-4", data: { confirm: 'Do you want to move without saving?'} ) %>
