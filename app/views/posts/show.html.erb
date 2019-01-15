@@ -1,18 +1,31 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-<p>
-  <strong>Published:</strong>
-  <%= @post.published %>
-</p>
+<div class="post">
+  <div class="show">
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+    <div class="d-flex flex-row">
+      <h1>
+        <%= @post.title %>
+      </h1>
+
+      <div class="align-self-end ml-3">
+        <p>
+          <strong>Published:</strong>
+          <% if( @post.published ) %>
+          <span class="badge badge-primary">
+          <% else %>
+          <span class="badge badge-secondary">
+          <% end %>
+          <%= @post.published %>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <p>
+      <%= @post.body %>
+    </p>
+  </div>
+</div>
 
 
 <%= link_to( 'Edit', edit_post_path(@post), class: "btn btn-primary" ) %>
