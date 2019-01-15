@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirement
+- Docker
 
-Things you may want to cover:
+## Usage
 
-* Ruby version
+```shell
+$ git clone https://github.com/satokibi/myblog-backend.git
+$ cd myblog-backend
+$ docker-compose up -d --build
+$ docker-compose exec web rails db:create
+$ docker-compose exec web rails db:migrate
+$ docker-compose exec web rails console
+```
 
-* System dependencies
+```terminal
+> User.create( name: "admin", mail: "your_mail@addres.com", password: "password", admin: true ) 
+> exit
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+http://localhost:3000
