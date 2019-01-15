@@ -49,19 +49,3 @@
   </div>
 <% end %>
 
-
-<script type="text/javascript">
-  window.onload = function() {
-    new Vue({
-      el: '#editor',
-      data: {
-        input: '',
-      },
-      methods: {
-        markdown: function() {
-          return marked( this.input );
-        }
-      },
-    });
-  };
-</script>
