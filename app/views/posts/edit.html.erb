@@ -1,0 +1,6 @@
+<h1>Editing Post</h1>
+
+<%= render 'form', post: @post %>
+
+<%= link_to( 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger text-white mt-4" ) %>
+<%= link_to( 'Cancel', posts_path, class: "btn btn-sm btn-secondary mt-4", data: { confirm: 'Do you want to move without saving?'} ) %>
