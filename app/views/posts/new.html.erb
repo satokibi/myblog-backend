@@ -4,16 +4,13 @@
 
 <script type="text/javascript">
   window.onload = function() {
-    new Vue({
-      el: '#editor',
-      data: {
-        input: '',
-      },
-      methods: {
-        markdown: function() {
-          return marked( this.input );
-        }
-      },
-    });
-  };
+
+    var markdown_input = $('#markdown_input');
+    var markdown_output = $('#markdown_output');
+
+    markdown_input.on('input', function() {
+      var value = markdown_input.val();
+      markdown_output.html( marked(value) );
+    })
+  }
 </script>
