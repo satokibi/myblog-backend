@@ -34,8 +34,8 @@
   <div id='editor'>
     <div class="field form-group">
       <%= form.label :body %>
-      <%= form.text_area( :body, class: "form-control", "v-model": "input" ) %>
-      <p v-html="markdown()"></p>
+      <%= form.text_area( :body, class: "form-control", id: "markdown_input" ) %>
+      <p id="markdown_output"></p>
     </div>
   </div>
 
@@ -49,3 +49,16 @@
   </div>
 <% end %>
 
+
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+
+    var markdown_input = $('#markdown_input');
+    var markdown_output = $('#markdown_output');
+
+    markdown_input.on('input', function() {
+      var value = markdown_input.val();
+      markdown_output.html( marked(value) );
+    })
+  })
+</script>
