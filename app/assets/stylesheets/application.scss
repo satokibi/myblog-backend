@@ -15,3 +15,10 @@
  @import "bootstrap";
  @import "./users.scss";
  @import "./posts.scss";
+
+
+ .field_with_errors {
+   input, textarea {
+     @extend .is-invalid;
+   }
+ }
