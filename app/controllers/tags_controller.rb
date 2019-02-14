@@ -1,11 +1,22 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
-  before_action( :signed_in_user )
+  before_action( :signed_in_user, except: [:api_index] )
+  protect_from_forgery :except => [:api_index]
 
   # GET /tags
   # GET /tags.json
   def index
     @tags = @current_user.tags
+  end
+
+  def api_index
+    authenticate_or_request_with_http_token do |token,options|
+      auth_user = User.find_by(token: token)
+      if( auth_user != nil )
+        @tags = auth_user.tags
+        render 'index', formats: 'json', handlers: 'jbuilder'
+      end
+    end
   end
 
   # GET /tags/1

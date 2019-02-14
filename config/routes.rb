@@ -11,4 +11,10 @@ Rails.application.routes.draw do
 
   get    'users',  to: 'users#index'
   get    'users/:id', to: 'users#show', as: 'user'
+
+  post   'api/auth', to: 'users#auth'
+  get   'api/tags', to: 'tags#api_index'
+  get   'api/categories', to: 'categories#api_index'
+  get   'api/posts', to: 'posts#api_index'
+  get   'api/posts/:id', to: 'posts#api_show'
 end

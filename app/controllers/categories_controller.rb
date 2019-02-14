@@ -1,11 +1,23 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action( :signed_in_user )
+  before_action( :signed_in_user, except: [:api_index] )
+  protect_from_forgery :except => [:api_index]
+
 
   # GET /categories
   # GET /categories.json
   def index
     @categories = @current_user.categories
+  end
+
+  def api_index
+    authenticate_or_request_with_http_token do |token,options|
+      auth_user = User.find_by(token: token)
+      if( auth_user != nil )
+        @categories = auth_user.categories
+        render 'index', formats: 'json', handlers: 'jbuilder'
+      end
+    end
   end
 
   # GET /categories/1

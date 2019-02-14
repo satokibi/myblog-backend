@@ -1,8 +1,53 @@
-<h1>StaticPages#home</h1>
+<div class="py-4"></div>
+<div class="mt-5">
+<h1>ブログシステム</h1>
+<p>
+  カテゴリやタグ、マークダウン形式の記事を作成することができます。
+  <br>新規ユーザ登録は受け付けておりません(T_T)
+</p>
 
-<div id="content"></div>
-<script>
-  console.log(marked('I am using __markdown__.'));
-  document.getElementById('content').innerHTML =
-      marked('# Marked in browser\n\nRendered by **marked**.');
-</script>
+<p>
+  お試しログイン
+  <br>Mail:
+  <br>Pass:
+</p>
+
+<p class="mb-0">
+  = お試しAPI =
+</p>
+
+<p class="mb-0">
+アクセストークン取得:
+  <div class="bg-secondary text-white p-2">
+    curl -H "Content-type: application/json" -X POST https://satokibi-blog.herokuapp.com/api/auth -d '{"mail": "your_mail@address.com", "password": "password" }'
+  </div>
+</p>
+
+<p class="mb-0">
+tags取得:
+  <div class="bg-secondary text-white p-2">
+    curl -H 'Authorization: Token アクセストークン' -H "Content-type: application/json" https://satokibi-blog.herokuapp.com/api/tags
+  </div>
+</p>
+<p class="mb-0">
+categories取得:
+  <div class="bg-secondary text-white p-2">
+    curl -H 'Authorization: Token アクセストークン' -H "Content-type: application/json" https://satokibi-blog.herokuapp.com/api/tacategorygs
+  </div>
+</p>
+
+<p class="mb-0">
+posts取得:
+  <div class="bg-secondary text-white p-2">
+    curl -H 'Authorization: Token アクセストークン' -H "Content-type: application/json" https://satokibi-blog.herokuapp.com/api/posts
+  </div>
+</p>
+
+<p class="mb-0">
+post取得:
+  <div class="bg-secondary text-white p-2">
+    curl -H 'Authorization: Token アクセストークン' -H "Content-type: application/json" https://satokibi-blog.herokuapp.com/api/post/1
+  </div>
+</p>
+
+</div>

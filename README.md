@@ -15,7 +15,7 @@ $ docker-compose exec web rails console
 ```
 
 ```terminal
-> User.create( name: "admin", mail: "your_mail@addres.com", password: "password", admin: true ) 
+> User.create( name: "admin", mail: "your_mail@address.com", password: "password", admin: true )
 > exit
 ```
 

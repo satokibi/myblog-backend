@@ -1,11 +1,32 @@
 class PostsController < ApplicationController
   before_action( :set_post, only: [:show, :edit, :update, :destroy] )
-  before_action( :signed_in_user )
+  before_action( :signed_in_user, except: [:api_index, :api_show] )
+  protect_from_forgery :except => [:api_index, :api_show]
 
   # GET /posts
   # GET /posts.json
   def index
     @posts = @current_user.posts
+  end
+
+  def api_index
+    authenticate_or_request_with_http_token do |token,options|
+      auth_user = User.find_by(token: token)
+      if( auth_user != nil )
+        @posts = auth_user.posts
+        render 'index', formats: 'json', handlers: 'jbuilder'
+      end
+    end
+  end
+
+  def api_show
+    authenticate_or_request_with_http_token do |token,options|
+      auth_user = User.find_by(token: token)
+      if( auth_user != nil )
+        @post = auth_user.posts.find( params[ :id ] )
+        render 'show', formats: 'json', handlers: 'jbuilder'
+      end
+    end
   end
 
   # GET /posts/1
